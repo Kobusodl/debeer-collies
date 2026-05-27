@@ -188,9 +188,45 @@ select:focus, input:focus, textarea:focus { border-color: var(--gold); box-shado
 .gallery-heading h1 span { color: var(--gold); }
 .gallery-heading p { font-size: 1.18rem; margin-bottom: 6px; }
 .gallery-heading .script { color: var(--green); }
-.decor-leaves { position: absolute; width: 180px; height: 180px; opacity: .35; top: 20px; background: radial-gradient(ellipse at center, rgba(31,59,29,.3), transparent 58%); border-radius: 50%; }
-.decor-leaves.left { left: 0; }
-.decor-leaves.right { right: 0; }
+.decor-leaves {
+  position: absolute;
+  top: 22px;
+  width: 260px;
+  height: 220px;
+  background-image: url("assets/images/logos-and-fancy/olive-leaves.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decor-leaves.left {
+  left: -35px;
+}
+
+.decor-leaves.right {
+  right: -35px;
+  transform: scaleX(-1);
+}
+
+.gallery-heading {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-heading .decor-line {
+  justify-content: center;
+  width: min(520px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
 .gallery-filters { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 22px; align-items: center; }
 .gallery-filters button { border: 1px solid rgba(183,138,53,.28); background: rgba(255,250,240,.65); color: var(--green-dark); border-radius: 999px; padding: 12px 28px; text-transform: uppercase; font-weight: 800; cursor: pointer; }
 .gallery-filters button.active, .gallery-filters button:hover { background: var(--green-dark); color: var(--cream-light); }
@@ -208,6 +244,34 @@ select:focus, input:focus, textarea:focus { border-color: var(--gold); box-shado
 .contact-hero { position: relative; min-height: 430px; background: var(--cream-light); display: grid; grid-template-columns: .8fr 1.2fr .8fr; align-items: center; overflow: hidden; border-bottom: 1px solid rgba(183,138,53,.18); }
 .contact-title { text-align: center; z-index: 1; padding: 45px 20px; }
 .contact-title .script { color: var(--green); margin: 0; }
+.contact-title .decor-line {
+  justify-content: center;
+  width: min(520px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-heading-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0.88;
+  margin: 22px 0;
+}
+
+.contact-heading-split span {
+  display: block;
+}
+
+.contact-heading-split span:last-child {
+  font-size: 0.82em;
+  letter-spacing: 0.08em;
+}
+
+.contact-intro strong {
+  font-weight: 800;
+  color: var(--green-dark);
+}
 .contact-dog { height: 100%; }
 .contact-dog img { width: 100%; height: 100%; object-fit: cover; }
 .contact-dog.left img { mask-image: linear-gradient(90deg, #000 0%, #000 72%, transparent 100%); }
@@ -329,4 +393,400 @@ select:focus, input:focus, textarea:focus { border-color: var(--gold); box-shado
   .lightbox-next { right: 10px; }
   .btn { width: 100%; }
   .hero-buttons { width: 100%; }
+}
+
+/* Rescue page */
+.rescue-hero {
+  display: grid;
+  grid-template-columns: minmax(340px, 43%) 1fr;
+  min-height: 560px;
+  background: linear-gradient(90deg, var(--cream-light), var(--cream) 46%, rgba(247,240,227,.86));
+  overflow: hidden;
+  border-bottom: 1px solid rgba(183,138,53,.18);
+}
+
+.rescue-hero-copy {
+  padding: clamp(42px, 6vw, 82px) clamp(22px, 5vw, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rescue-hero-copy .script {
+  margin-bottom: 8px;
+  color: var(--gold);
+}
+
+.rescue-hero-copy p:not(.script) {
+  max-width: 610px;
+  font-size: 1.02rem;
+}
+
+.rescue-hero-subtitle {
+  color: var(--green-dark);
+  font-size: clamp(1.28rem, 2vw, 1.8rem);
+  text-transform: none;
+  letter-spacing: .02em;
+}
+
+.rescue-lead {
+  font-family: 'Playfair Display', serif;
+  color: var(--green-dark);
+  font-size: 1.35rem !important;
+  line-height: 1.35;
+}
+
+.rescue-static-label,
+.rescue-static-center,
+.rescue-cta-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 14px;
+  padding: 13px 22px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: var(--cream-light);
+  border: 1px solid rgba(214,180,106,.35);
+  box-shadow: var(--soft-shadow);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+.rescue-hero-image {
+  min-height: 460px;
+  position: relative;
+}
+
+.rescue-hero-image:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--cream-light) 0%, rgba(247,240,227,.72) 12%, rgba(247,240,227,0) 34%);
+}
+
+.rescue-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rescue-quote-card {
+  position: absolute;
+  right: clamp(18px, 5vw, 80px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: min(250px, 32vw);
+  min-height: 250px;
+  padding: 34px 28px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: rgba(16,40,15,.93);
+  color: var(--cream-light);
+  border: 1px solid rgba(214,180,106,.38);
+  border-radius: 46% 46% 48% 48% / 40% 40% 58% 58%;
+  box-shadow: var(--shadow);
+}
+
+.rescue-quote-card .script {
+  color: var(--gold-light);
+  font-size: 2.05rem;
+  line-height: .95;
+  margin: 0;
+}
+
+.rescue-quote-card span {
+  color: var(--gold);
+  font-size: 1.8rem;
+}
+
+.rescue-intro-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.04fr .78fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.rescue-photo-card,
+.rescue-commitment-card,
+.rescue-dogs-panel,
+.rescue-actions-card {
+  background: rgba(255,250,240,.78);
+  border: 1px solid rgba(183,138,53,.22);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  overflow: hidden;
+}
+
+.rescue-photo-card img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.rescue-story-copy {
+  padding: 12px 4px;
+}
+
+.rescue-story-copy .script {
+  color: var(--gold);
+  margin: 10px 0 0;
+}
+
+.rescue-story-copy .decor-line:before,
+.rescue-story-copy .decor-line:after {
+  max-width: 120px;
+}
+
+.rescue-actions-card {
+  padding: 22px;
+  display: grid;
+  gap: 16px;
+}
+
+.rescue-action-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.rescue-action-item > span {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--green-dark);
+  color: var(--gold-light);
+  font-size: 1.5rem;
+}
+
+.rescue-action-item h3 {
+  color: var(--green-dark);
+  margin-bottom: 3px;
+}
+
+.rescue-action-item p {
+  font-size: .88rem;
+  margin: 0;
+}
+
+.rescue-family-grid {
+  display: grid;
+  grid-template-columns: .76fr 1.34fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.rescue-commitment-card {
+  padding: 34px 30px;
+  text-align: center;
+}
+
+.rescue-icon-large {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(183,138,53,.35);
+  background: rgba(247,240,227,.75);
+  color: var(--green-dark);
+  font-size: 2.5rem;
+}
+
+.rescue-commitment-card h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+}
+
+.rescue-commitment-card strong {
+  color: var(--green-dark);
+}
+
+.rescue-dogs-panel {
+  padding: 28px;
+}
+
+.rescue-dogs-panel .section-heading h2 {
+  font-size: clamp(1.75rem, 2.6vw, 2.45rem);
+}
+
+.rescue-dogs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.rescue-dog-card {
+  background: var(--cream-light);
+  border: 1px solid rgba(183,138,53,.22);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(28, 23, 13, .08);
+}
+
+.rescue-dog-card img {
+  width: 100%;
+  height: 158px;
+  object-fit: cover;
+}
+
+.rescue-dog-card h3 {
+  margin: 12px 8px 2px;
+  color: var(--green-dark);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .06em;
+}
+
+.rescue-dog-card p {
+  margin: 0 8px 13px;
+  font-size: .83rem;
+  color: var(--muted);
+}
+
+.rescue-static-center {
+  margin: 22px auto 0;
+}
+
+.rescue-values-strip .strip-grid div {
+  background: rgba(255,250,240,.22);
+  border-radius: 16px;
+  border-right: 1px solid rgba(183,138,53,.20);
+}
+
+.rescue-cta-band {
+  background: linear-gradient(90deg, rgba(16,40,15,.98), rgba(31,59,29,.94));
+  color: var(--cream-light);
+  border-top: 1px solid rgba(214,180,106,.45);
+  border-bottom: 1px solid rgba(214,180,106,.45);
+}
+
+.rescue-cta-inner {
+  display: grid;
+  grid-template-columns: .58fr 1fr auto;
+  align-items: center;
+  gap: 30px;
+  padding: 34px 0;
+}
+
+.rescue-cta-inner img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.rescue-cta-inner .script {
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.rescue-cta-inner p:not(.script) {
+  color: rgba(255,250,240,.88);
+  margin-bottom: 0;
+}
+
+.rescue-cta-label {
+  margin-top: 0;
+  background: rgba(255,250,240,.06);
+  border: 1px solid var(--gold);
+  min-width: 190px;
+}
+
+@media (max-width: 1120px) {
+  .rescue-intro-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rescue-actions-card {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rescue-family-grid,
+  .rescue-cta-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .rescue-cta-label {
+    margin: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .rescue-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .rescue-hero-image {
+    min-height: 320px;
+    order: -1;
+  }
+
+  .rescue-hero-image:before {
+    background: linear-gradient(0deg, var(--cream-light) 0%, rgba(247,240,227,.55) 18%, rgba(247,240,227,0) 48%);
+  }
+
+  .rescue-quote-card {
+    right: 18px;
+    bottom: 18px;
+    top: auto;
+    transform: none;
+    width: 210px;
+    min-height: 180px;
+    padding: 24px 18px;
+  }
+
+  .rescue-quote-card .script {
+    font-size: 1.6rem;
+  }
+
+  .rescue-intro-grid,
+  .rescue-actions-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rescue-dogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rescue-dog-card img {
+    height: 210px;
+  }
+}
+
+@media (max-width: 560px) {
+  .rescue-static-label,
+  .rescue-static-center,
+  .rescue-cta-label {
+    width: 100%;
+  }
+
+  .rescue-quote-card {
+    width: 178px;
+    min-height: 160px;
+  }
+
+  .rescue-dogs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rescue-dog-card img {
+    height: 240px;
+  }
 }
